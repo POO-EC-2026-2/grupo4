@@ -1,0 +1,52 @@
+classDiagram
+    direction LR
+
+    class Produto {
+        -String nome
+        -String descricao
+        -String tipo
+        -double preco
+        -int quantidade
+        +Produto(String, String, String, double, int)
+        +exibirDetalhes() void
+        +aplicarDesconto(double) void
+        +getNome() String
+        +getPreco() double
+        +toString() String
+    }
+
+    class ProdutoProcessado {
+        -String dataValidade
+        -String ingredientes
+        +ProdutoProcessado(String, String, String, double, int, String, String)
+        +exibirDetalhes() void
+        +exibirIngredientes() void
+        +getDataValidade() String
+        +getIngredientes() String
+        +toString() String
+    }
+
+    class Pedido {
+        -String data
+        -String hora
+        -String endereco
+        -String status
+        -double valorTotal
+        -HashMap~String, Produto~ produtos
+        +Pedido(String, String, String, String, double)
+        +adicionarProduto(Produto) void
+        +getProdutos() HashMap
+    }
+
+    class App {
+        +main(String[]) void
+        +ExercicioPolimorfismo() void
+        +Ex09() void
+        +Ex08() void
+    }
+
+    Produto <|-- ProdutoProcessado : herança
+    Pedido "1" o-- "*" Produto : contém
+    App ..> Pedido : cria
+    App ..> Produto : instancia
+    App ..> ProdutoProcessado : instancia
