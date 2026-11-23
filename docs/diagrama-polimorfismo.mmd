@@ -38,15 +38,5 @@ classDiagram
         +getProdutos() HashMap
     }
 
-    class App {
-        +main(String[]) void
-        +ExercicioPolimorfismo() void
-        +Ex09() void
-        +Ex08() void
-    }
-
     Produto <|-- ProdutoProcessado : herança
     Pedido "1" o-- "*" Produto : contém
-    App ..> Pedido : cria
-    App ..> Produto : instancia
-    App ..> ProdutoProcessado : instancia
